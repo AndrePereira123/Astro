@@ -1,11 +1,113 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// Welcome to Astro! Everything between these triple-dash code fences
+// is your "component frontmatter". It never runs in the browser.
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const personalInfo = {
+  name: "André Pereira",
+  email: "andresoaresgrugru@gmail.com",
+  linkedin: "https://linkedin.com/in/andre-pereira-lei",
+  github: "https://github.com/AndrePereira123"
+};
+
 ---
+<!-- Below is your "component template." It's just HTML, but with
+    some magic sprinkled in to help you build great templates. -->
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>André Pereira - CV</title>
+  </head>
+  <body>
+      <header class="header">
+            <h1 class="name">{personalInfo.name}</h1>
+            <div class="contact-info">
+              <a href={`mailto:${personalInfo.email}`} class="contact-link">
+                {personalInfo.email}
+              </a>
+              <a href={personalInfo.linkedin} target="_blank" class="contact-link">
+                LinkedIn
+              </a>
+              <a href={personalInfo.github} target="_blank" class="contact-link">
+                GitHub
+              </a>
+            </div>
+      </header>
+	  <main>
+		<h2>Welcome to my Web page!</h2>
+	  </main>
+  </body>
+</html>
+<style>
+
+ body {
+	background-color: darkcyan;
+ }
+
+ main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: #f0f0f0;
+	border-radius: 20px;
+	margin: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	align-self: center;
+	justify-self: center;
+	width: 50%;
+	}
+
+ .name {
+	color: white;
+	font-size: 2.5rem;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+  }
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: #121212;
+	color: white;
+  }
+  
+  .contact-info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 7%;
+	margin-top: 10px;
+  }
+
+  .contact-link {
+	color: white;
+	background-color: blue;
+	padding: 3%;
+	border-radius: 15px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-size: 1.2rem;
+  }
+
+  .contact-link:hover {
+  background: rgba(202, 201, 20, 0.5);
+  transform: translateY(-2px);
+  /* Add glow effect */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+              0 0 40px rgba(255, 255, 255, 0.3),
+              0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+  h1 {
+    color: orange;
+  }
+</style>
